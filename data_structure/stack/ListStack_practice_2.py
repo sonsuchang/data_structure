@@ -21,7 +21,6 @@ class ListStack:
         self.__stack.clear()
 
     def printStack(self):
-        print("Stack from top:", end = ' ')
+        print("Stack:")
         for i in range(0, len(self.__stack)):
-            print(self.__stack[i], end = ' ')
-        print()
+            print('stack[',self.__stack[i],']:')
