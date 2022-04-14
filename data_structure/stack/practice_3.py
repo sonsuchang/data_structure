@@ -1,9 +1,9 @@
-from ListStack import *
+from LinkedStack import *
 
 def check_func():
     w = input()
     check_sum = 0
-    check_w = ListStack()
+    check_w = LinkedStack()
     for i in w:
         check_w.push(i)
     for k in range(len(w) - 1, -1, -1):
