@@ -14,7 +14,28 @@ class CircularDoublyLinkedList:
         prev.next = newNode
         self.__head.prev = newNode
         self.__numItems += 1
-
+    def add(self, x) -> None:
+        if self.__numItems == 0:
+            prev = self.getNode(-1)
+            newNode = BidirectNode(x, prev, self.__head)
+            prev.next = newNode
+            self.__head.prev = newNode
+            self.__numItems += 1
+        else:
+            for i in range(self.__numItems):
+                prev = self.getNode(i)
+                if prev.item > x:
+                    newNode = BidirectNode(x, prev.prev, prev)
+                    prev.prev.next = newNode
+                    prev.prev = newNode
+                    self.__numItems += 1
+                    break
+                elif i == self.__numItems - 1 and prev.item < x:
+                    newNode = BidirectNode(x, prev, self.__head)
+                    prev.next = newNode
+                    self.__head.prev = newNode
+                    self.__numItems += 1
+                    break
     def insert(self, i:int, newItem) -> None:
         if (i >= 0 and i <= self.__numItems):
             prev = self.getNode(i - 1)
